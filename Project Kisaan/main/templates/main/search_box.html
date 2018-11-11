@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+		{% load static %}
+
+	<title>Kisaan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/search_box.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	*{
+	font-family: 'K2D', sans-serif;
+}
+body{
+	margin: 0;
+	padding: 0;
+}
+.outer_div{
+	height: 100vh;
+	overflow: auto;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.search_box_div_para{
+	margin-top: 15%;
+	text-align: center;
+	font-size: 100px;
+	color: black;
+	
+}
+.search_box{
+	width: 50%;
+	height: 50px;
+	margin: 0 auto !important;
+	border: 1px solid #000;
+	border-radius: 4px;
+	background: transparent;
+	padding: 0 !important;
+	cursor: pointer;
+	display: flex;
+	overflow: hidden;
+}
+.search_box_fake_search_box{
+	border-radius: 4px 0px 0px 4px;
+	color: #4D4D4D;
+	font-size: 16px;
+	letter-spacing: 2px;
+	background: #FFFAAA;
+	padding-top: 10px;
+}
+.search_box_fake_search_box_search_button{
+	color: #FFFFFF;
+	font-size: 14px;
+	border-left: 1px solid #4D4D4D;
+	background: #5e2000;
+	margin: 0 !important;
+	text-align: center;
+	padding-top: 10px;
+}
+.search_icon{
+	margin-right: 2px;
+}
+	</style>
+	</head>
+<body>
+	<div class = "outer_div">
+		<p class = "search_box_div_para">Kisaan</p>
+		<a href = "/search" class = "row search_box">
+			<div class = "col-md-10 search_box_fake_search_box">Click here to Continue</div>
+			<div class = "col-md-2 search_box_fake_search_box_search_button">
+				<i class = "fa fa-search search_icon"></i>
+				Calculate		
+			</div>
+		</a>
+		<br/>
+		<div class="col-md-12" style="text-align:center;">A Farm Monitoring Tool</div>
+	</div>
+</body>
+</html>

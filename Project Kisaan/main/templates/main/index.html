@@ -1,0 +1,133 @@
+<!-- <html>
+	<head>
+		<title>Academic Section IITG</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700" rel="stylesheet">
+	</head>
+	<body>
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			  <a class="navbar-brand" href="#">Academic Section IITG</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="http://www.iitg.ernet.in/researchconclave/">Home <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  						Contact Us
+					</button>
+			      </li>
+			    </ul>
+			    <span class="navbar-text" style="color:white;">
+      					IIT Guwahati
+    			</span>
+			  </div>
+			</nav>
+		</div>
+		<br/>
+		<div class="container">
+			<div class="row justify-content-center">
+					<img class="img-fluid" src="http://shilloi.iitg.ernet.in/~intracc/utilities/logo/iitg_web_mid.gif" />
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-md-6 offset-md-3 justify-content-center" style="text-align:center; font-size:28px;font-family: 'Fira Mono', monospace;
+				">
+							<b>Academic Section, IIT Guwahati</b>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row ">
+				<div class="col-md-6 offset-md-3 justify-content-center" style="">
+			<form method="POST" enctype="multipart/form-data" action="{% url 'index_main' %}" 
+				style="font-size:16px;font-family: 'Fira Mono', monospace; padding-top:5px; border-radius:15px; border:solid 0px black;"
+			>
+			    {% csrf_token %}
+			    
+			    <div class="form-group" style="border-radius: 4;padding-top: 20px;">
+			    {{ form.name.errors }}
+			    <label for="exampleInputEmail1">Name</label>
+			    {{ form.name }}
+			    </div>
+			    <div class="form-group" style="border-radius: 4;padding-top: 20px;">
+			    {{ form.mobile_number.errors }}
+			    <label for="{{ form.user_id.id_for_label }}" style="border-radius: 4;">Mobile Number</label>
+			    {{ form.mobile_number }}
+			    </div>
+			    <div class="form-group" style="border-radius: 4;padding-top: 20px;">
+			    {{ form.email_id.errors }}
+			    <label for="{{ form.user_id.id_for_label }}" style="border-radius: 4;">Email ID</label>
+			    {{ form.email_id }}
+					</div>
+					<div class="form-group" style="border-radius: 4;padding-top: 20px;">
+						{{ form.roll_number.errors }}
+						<label for="{{ form.user_id.id_for_label }}" style="border-radius: 4;">Roll Number</label>
+						{{ form.roll_number }}
+						</div>
+						<div class="form-group" style="border-radius: 4;padding-top: 20px;">
+							{{ form.no_of_unsealed_transcripts_required.errors }}
+							<label for="{{ form.user_id.id_for_label }}" style="border-radius: 4;">No of Unsealed Transcripts Required : </label>
+							{{ form.no_of_unsealed_transcripts_required }}
+							</div>
+							<div class="form-group" style="border-radius: 4;padding-top: 20px;">
+								{{ form.no_of_sealed_transcripts_required.errors }}
+								<label for="{{ form.user_id.id_for_label }}" style="border-radius: 4;">No of Sealed Transcripts Required : </label>
+								{{ form.no_of_sealed_transcripts_required }}
+								</div>
+			    <br/>
+			    <button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+				<br/>
+				<br/>
+				<br/>
+				</div>
+			</div>
+		</div>
+		<div>
+			<nav class="navbar fixed-bottom navbar-light bg-light">
+				<div style="color: black">
+  					<a class="navbar-text" href="#" style="color: black">Developed By Pravandan Chand</a>
+  					
+    			</div>
+			</nav>
+			
+		</div>
+		Modal for contact us section -->
+		<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        Feel free to reach us for any type of queries 
+			        <br/>
+			        <br/>
+			        
+			        research_conclave@iitg.ernet.in <br/>
+					researchconclave.iitg@gmail.com <br/>
+					<br/>
+					+91 9854881293<br/>
+ 					+91 9706505018
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+		</div>
+	</body>
+</html> -->

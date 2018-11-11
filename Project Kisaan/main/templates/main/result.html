@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+        {% load static %}
+	<title>Kisaan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'main/result.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,500" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	 <meta charset="UTF-8">
+</head>
+<body>
+	<div class="outer_div">
+		<div class="header_wrapper">
+			<a href="search_box.html"><div class="header_logo">Kisaan</div></a>
+			<div class="upper_div_search_bar_wrapper">
+				<!-- <div class="upper_div_search_bar">
+					<i class = "fa fa-search result_search_icon"></i>
+					<span class="search_text">Geeta Colony</span>
+				</div> -->
+			</div>
+			
+		</div>
+		<div class="result_section_wrapper">
+			<div class="result_list_div_wrapper">
+				<div id = "ele1" class="result_element_wrapper" onclick="show_id(this.id)">
+					<div class="result_image_wrapper">
+						<img src="https://images.pexels.com/photos/248880/pexels-photo-248880.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="result_image_img">
+					</div>
+					<div class="result_right_wrapper">
+						<div class="result_description_wrapper">
+							<div class="result_performance">
+								<div class="result_overall_score">
+									<div class="result_overall_score_text">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp CURRENT POSITION</div>
+									<div class="result_overall_score_value score_value" id="main_score">0</div>
+								</div>
+								<p></p><br/></br/>
+								<div class="result_individual_score_block">
+									<div class="result_individual_score_row">
+										<div class="result_individual_score_row_left_col">
+											<div class="result_individual_score_text">Temperature</div>
+											<div class="result_individual_score_value_bar score_value">
+												<div class="result_individual_score_value score_value"></div>
+												<div class="result_individual_score_bar">
+													<div class="w3-progress-container" style="background-color: #DDDDDD;">
+													  <div class="w3-progressbar result_individual_score_bar_bar" style="height: 20px;"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="result_individual_score_row_right_col">
+											<div class="result_individual_score_text">Air Quality</div>
+											<div class="result_individual_score_value_bar score_value">
+												<div class="result_individual_score_value score_value"></div>
+												<div class="result_individual_score_bar">
+													<div class="w3-progress-container" style="background-color: #DDDDDD;">
+													  <div class="w3-progressbar result_individual_score_bar_bar" style="height: 20px;"></div>
+													</div>
+												</div>
+											</div>	
+										</div>
+										<div class="result_individual_score_row_left_col">
+											<div class="result_individual_score_text">Humidity</div>
+											<div class="result_individual_score_value_bar score_value">
+												<div class="result_individual_score_value score_value"></div>
+												<div class="result_individual_score_bar">
+													<div class="w3-progress-container" style="background-color: #DDDDDD;">
+													  <div class="w3-progressbar result_individual_score_bar_bar" style="height: 20px;"></div>
+													</div>
+												</div>
+											</div>	
+										</div>
+									</div>
+								</div>
+								<div class = "outer_div">
+									<a href = "/list" class = "row search_box">
+										<div class = "col-md-10 search_box_fake_search_box">Click Here to Monitor Entire Farm</div>
+										
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="result_right_section_wrapper">
+				<div id = "map" class="result_map_wrapper">
+					Real-Time Camera View
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script>
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+			scoreData = {{score_data|safe}}
+			console.log('hi')
+			console.log(scoreData)
+			document.getElementById('main_score').innerHTML = scoreData[0]['x'].toFixed(2)
+      function changeGradient() {
+        var gradient = [
+          'rgba(0, 255, 255, 0)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 191, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 63, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(0, 0, 223, 1)',
+          'rgba(0, 0, 191, 1)',
+          'rgba(0, 0, 159, 1)',
+          'rgba(0, 0, 127, 1)',
+          'rgba(63, 0, 91, 1)',
+          'rgba(127, 0, 63, 1)',
+          'rgba(191, 0, 31, 1)',
+          'rgba(255, 0, 0, 1)'
+        ]
+      }
+      function show_id(element_id){
+      	var ele = document.getElementById('display_selected_div');
+      	var ele_num = element_id.substring(3);
+      	ele.innerHTML = "ELEMENT " + ele_num + " WAS SELECTED";
+      }
+      function setColorfromScore(score){
+      		var score_int = parseInt(score);
+      		var r = 255 - ((score_int * 255) / 50);
+      		var g = 255 - (((50 - score_int) * 255) / 50);
+      		// console.log(score_int + ' ' +  r  +  ' ' +  g);
+      		return 'rgb(' + r.toString() + ' , ' + g.toString()  + ', 0)';
+      }
+        var score_array = [this.scoreData[0]['gas'].toFixed(2) , this.scoreData[0]['humidity'].toFixed(2), this.scoreData[0]['temperature'].toFixed(2)];
+        var score_doc = document.getElementsByClassName('result_individual_score_value');
+        var score_doc_length = score_doc.length;
+        for(var i = 0 ; i < score_doc_length ; i++){
+        	score_doc[i].innerHTML = score_array[i];
+        }
+	     var score_value_ele = document.getElementsByClassName('score_value');
+	     var score_value_ele_length = score_value_ele.length;
+	     for(var i = 0 ; i < score_value_ele_length ; i++){
+	     	var curr_ele = score_value_ele[i];
+	     	var curr_score = curr_ele.innerHTML;
+	     	curr_ele.style.color = setColorfromScore(curr_score);
+	     }
+	     var score_bar = document.getElementsByClassName('result_individual_score_bar_bar');
+	     var indi_score_value = document.getElementsByClassName('result_individual_score_value');
+	     var indi_score_value_length = indi_score_value.length;
+	     for(var i = 0 ; i < indi_score_value_length ; i++){
+	     	var curr_score = indi_score_value[i].innerHTML;
+	     	score_bar[i].style.width = curr_score + '%';
+	     	score_bar[i].style.backgroundColor = setColorfromScore(curr_score);
+	     }
+	     // console.log(indi_score_value.length);
+	     window.setTimeout(function () {
+    	location.href = "/search";
+		}, 10000); // refresh/redirect after 5 seconds.
+    </script>
+
+
+
+</body>
+</html>
