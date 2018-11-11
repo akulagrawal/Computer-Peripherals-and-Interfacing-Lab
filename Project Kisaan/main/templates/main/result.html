@@ -108,7 +108,7 @@
 			scoreData = {{score_data|safe}}
 			console.log('hi')
 			console.log(scoreData)
-			document.getElementById('main_score').innerHTML = scoreData[0]['x'].toFixed(2)
+			document.getElementById('main_score').innerHTML = "x = " + scoreData[0]['x'].toFixed(0) + "  , y = " + scoreData[0]['y'].toFixed(0)
       function changeGradient() {
         var gradient = [
           'rgba(0, 255, 255, 0)',
