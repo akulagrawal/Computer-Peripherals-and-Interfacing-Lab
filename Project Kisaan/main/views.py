@@ -2,30 +2,38 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import json
 from .forms import NameForm
+import paho.mqtt.publish as publish
 # Create your views here.
 def index_view(request):
     return render(request,'main/search_box.html')
 
 def search_view(request):
 
-    with open('score.json', 'r') as f:
-    	score = json.load(f)
+    try:
+        with open('sensordata.json', 'r') as f:
+            score = json.load(f)
+    except:
+        with open('score.json', 'r') as f:
+           score = json.load(f)
 
     with open('data.json', 'r') as f:
     	data = json.load(f)
 
+    with open('score.json', 'w') as outfile:
+        json.dump(score, outfile)
+
     x_step = 500
-    x_max = 3000
+    x_max = 2500
     y_step = 300
-    y_max = 1500
+    y_max = 1200
     x_n = int(x_max/x_step)
     y_n = int(y_max/y_step)
-    x = score[0]['x']/x_step
-    y = score[0]['y']/y_step
+    x = score['x']/x_step
+    y = score['y']/y_step
     pos = int(x*y_n+y)
     print("Fetching data at position", pos ,"...")
     #print(data[pos])
-    data[pos] = score[0]
+    data[pos] = score
     #print(data[pos])
 
     with open('data.json', 'w') as outfile:
@@ -58,27 +66,42 @@ def search(request):
     with open('coords.txt', 'w') as f:
         f.write(mode + "," + x + "," + y + "," + z)
 
-    with open('score.json', 'r') as f:
-        score = json.load(f)
+    try:
+        with open('sensordata.json', 'r') as f:
+           score = json.load(f)
+    except:
+        with open('score.json', 'r') as f:
+           score = json.load(f)
 
     with open('data.json', 'r') as f:
         data = json.load(f)
 
+    with open('score.json', 'w') as outfile:
+        json.dump(score, outfile)
+
     x_step = 500
-    x_max = 3000
+    x_max = 2500
     y_step = 300
-    y_max = 1500
+    y_max = 1200
     x_n = int(x_max/x_step)
     y_n = int(y_max/y_step)
-    x = score[0]['x']/x_step
-    y = score[0]['y']/y_step
+    x = score['x']/x_step
+    y = score['y']/y_step
     pos = int(x*y_n+y)
     print("Fetching data at position", pos ,"...")
     #print(data[pos])
-    data[pos] = score[0]
+    data[pos] = score
     #print(data[pos])
 
     with open('data.json', 'w') as outfile:
         json.dump(data, outfile)
+
+    MQTT_SERVER = "10.42.0.1"
+    MQTT_PATH = "test"
+
+    with open ("coords.txt", "r") as f:
+        inputstr = f.read()
+
+    publish.single(MQTT_PATH, inputstr, hostname=MQTT_SERVER)
 
     return render(request,'main/result.html',{'score_data':score})

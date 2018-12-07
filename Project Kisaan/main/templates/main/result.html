@@ -113,7 +113,7 @@
 			scoreData = {{score_data|safe}}
 			console.log('hi')
 			console.log(scoreData)
-			document.getElementById('main_score').innerHTML = "x = " + scoreData[0]['x'].toFixed(0) + "  , y = " + scoreData[0]['y'].toFixed(0)
+			document.getElementById('main_score').innerHTML = "x = " + scoreData['x'].toFixed(0) + "  , y = " + scoreData['y'].toFixed(0)
       function changeGradient() {
         var gradient = [
           'rgba(0, 255, 255, 0)',
@@ -144,7 +144,7 @@
       		// console.log(score_int + ' ' +  r  +  ' ' +  g);
       		return 'rgb(' + r.toString() + ' , ' + g.toString()  + ', 0)';
       }
-        var score_array = [this.scoreData[0]['gas'].toFixed(2) , this.scoreData[0]['humidity'].toFixed(2), this.scoreData[0]['temperature'].toFixed(2)];
+        var score_array = [this.scoreData['gas'].toFixed(2) , this.scoreData['humidity'].toFixed(2), this.scoreData['temperature'].toFixed(2)];
         var score_doc = document.getElementsByClassName('result_individual_score_value');
         var score_doc_length = score_doc.length;
         for(var i = 0 ; i < score_doc_length ; i++){

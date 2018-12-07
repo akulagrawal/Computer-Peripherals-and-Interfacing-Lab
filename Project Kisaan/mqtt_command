@@ -1,0 +1,1 @@
+mosquitto_pub -h 10.42.0.13 -t test_channel -m "Hello MQTT"

@@ -25,7 +25,7 @@ SECRET_KEY = 'pmu(!1^0s++heb!g#he$zmpi=irbh_f11@joon=#k1h8n_1dg2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
